@@ -21,3 +21,4 @@ nn <- function(z, xl)
 ```
 
 ###### Получаем следующую карту классификации
+![Иллюстрация к проекту](https://github.com/MinaevYuriy/SMPR/blob/master/1G_7rOwyOS4.jpg)
