@@ -25,7 +25,24 @@ nn <- function(z, xl)
 
 ***
 ### Баесовские алгоритмы
+Байесовский подход является классическим в теории распознавания образов и лежит в основе многих методов.
+```R
+naive = function(x, Py, mu, sigm, m, n) { 
+  mina <- matrix(c('setosa','versicolor', 'virginica', 0, 0, 0), nrow = 3, ncol = 2)
+  scores = rep(0, m)
+  for (i in 1:m) {
+    scores[i] = Py[i]
+    for (j in 1:n){
+      N=1/sqrt(2*pi)/sigm[i,j]*exp(-1/2*(x[j]-mu[i,j])^2/sigm[i,j]^2)
+      scores[i] = scores[i] * N
+    }
+    mina[i,2]=scores[i]
+  }
+  class <- mina[,1][which.max(mina[,2])]
+}
 
+```
+###### Получаем следующую карту классификации
 ![Иллюстрация к проекту](https://github.com/MinaevYuriy/SMPR/blob/master/yN3XIGM0m0I.jpg)
     
       
