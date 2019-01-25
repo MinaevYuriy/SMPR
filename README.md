@@ -26,4 +26,8 @@ nn <- function(z, xl)
 ***
 ### Баесовские алгоритмы
 
+![Иллюстрация к проекту](https://github.com/MinaevYuriy/SMPR/blob/master/yN3XIGM0m0I.jpg)
+    
+      
+
 
