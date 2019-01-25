@@ -27,14 +27,15 @@ nn <- function(z, xl)
 ### Баесовские алгоритмы
 Байесовский подход является классическим в теории распознавания образов и лежит в основе многих методов.
 ```R
-naive = function(x, Py, mu, sigm, m, n) { 
-  mina <- matrix(c('setosa','versicolor', 'virginica', 0, 0, 0), nrow = 3, ncol = 2)
-  scores = rep(0, m)
+naive = function(x, Py, mu, sigm, m, n) { #функция наивного байесовского классификатора
+  mina <- matrix(c('setosa','versicolor', 'virginica', 0, 0, 0), nrow = 3, ncol = 2) #3 класса, 2 признака
+  scores = rep(0, m) 
   for (i in 1:m) {
-    scores[i] = Py[i]
+    scores[i] = Py[i] # присваиваем восстановленные плотности
     for (j in 1:n){
-      N=1/sqrt(2*pi)/sigm[i,j]*exp(-1/2*(x[j]-mu[i,j])^2/sigm[i,j]^2)
-      scores[i] = scores[i] * N
+      N=1/sqrt(2*pi)/sigm[i,j]*exp(-1/2*(x[j]-mu[i,j])^2/sigm[i,j]^2) #гауссовское нормальнное распределение
+      # следуем  оптимальному байесовскому решающему правилу
+      scores[i] = scores[i] * N 
     }
     mina[i,2]=scores[i]
   }
